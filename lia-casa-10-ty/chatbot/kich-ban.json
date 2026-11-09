@@ -1,0 +1,95 @@
+{
+  "thuong_hieu": "Lia Casa – Nội thất nhập khẩu",
+  "nguon_du_lieu_catalog": "landing/catalog.json",
+  "bien": {
+    "hotline": "0900 000 000",
+    "zalo": "https://zalo.me/0900000000",
+    "landing": "https://liacasa.vn",
+    "showroom": "[Địa chỉ showroom]",
+    "gio_lam_viec": "8h–21h hằng ngày"
+  },
+  "luong": {
+    "chao": {
+      "tin_nhan": "Chào {first_name} 👋 Lia Casa – Nội thất nhập khẩu Ý, Tây Ban Nha, Bắc Âu xin chào! Anh/chị cần Lia Casa hỗ trợ gì ạ?",
+      "nut": [
+        {"nhan": "🛋 Xem catalog", "den": "catalog"},
+        {"nhan": "💰 Hỏi giá", "den": "hoi_gia"},
+        {"nhan": "📐 Thiết kế 3D miễn phí", "den": "thiet_ke"},
+        {"nhan": "📍 Đặt lịch showroom", "den": "showroom"},
+        {"nhan": "👩‍💼 Gặp nhân viên", "den": "handoff"}
+      ]
+    },
+    "catalog": {
+      "tin_nhan": "Anh/chị đang tìm nội thất cho không gian nào ạ?",
+      "nut": [
+        {"nhan": "Phòng khách", "den": "carousel", "loc": ["Sofa", "Bàn trà", "Ghế", "Đèn"]},
+        {"nhan": "Phòng ăn", "den": "carousel", "loc": ["Bàn ăn"]},
+        {"nhan": "Phòng ngủ", "den": "carousel", "loc": ["Giường"]}
+      ]
+    },
+    "carousel": {
+      "mo_ta": "Gửi tối đa 10 thẻ sản phẩm lọc theo danh_muc từ catalog.json",
+      "the": {
+        "tieu_de": "{ten}",
+        "phu_de_co_san": "{gia_hien_thi} · {xuat_xu} · Giao {thoi_gian_giao}",
+        "phu_de_cap_nhat_sau": "Giá cập nhật sau · Dự kiến từ {gia_du_kien_tu} · {xuat_xu}",
+        "anh": "{anh}",
+        "nut": [{"nhan": "Hỏi giá mẫu này", "den": "hoi_gia", "gan": "sku={sku}"}]
+      }
+    },
+    "hoi_gia": {
+      "neu_chua_co_sku": "Anh/chị gửi giúp em ảnh hoặc tên mẫu đang quan tâm nhé, hoặc bấm 'Xem catalog' để chọn ạ.",
+      "co_san": "Mẫu {ten} hiện có giá {gia_hien_thi}{chu_thich_km}. Còn {ton_kho} sản phẩm, giao trong {thoi_gian_giao}, bảo hành dài hạn. Anh/chị muốn em giữ hàng hoặc gửi báo giá chi tiết qua Zalo không ạ?",
+      "cap_nhat_sau": "Mẫu {ten} là hàng đặt theo lô nhập từ {xuat_xu}, giá phụ thuộc tỷ giá và tuỳ chọn chất liệu/kích thước nên được cập nhật theo từng lô{chu_thich_du_kien}. Anh/chị để lại SĐT/Zalo, chuyên viên sẽ gửi báo giá chính xác trong 15 phút ạ.",
+      "gan_tag": ["hoi_gia", "sku:{sku}", "hoi_gia_cap_nhat_sau:{sku}|neu=cap_nhat_sau"],
+      "tiep": "xin_sdt"
+    },
+    "thiet_ke": {
+      "cau_hoi": [
+        {"bien": "khong_gian", "hoi": "Anh/chị cần thiết kế cho không gian nào?", "lua_chon": ["Căn hộ", "Nhà phố", "Biệt thự", "Văn phòng/Showroom"]},
+        {"bien": "dien_tich", "hoi": "Diện tích khoảng bao nhiêu m² ạ?"},
+        {"bien": "phong_cach", "hoi": "Anh/chị thích phong cách nào?", "lua_chon": ["Hiện đại Ý", "Tối giản Bắc Âu", "Tân cổ điển", "Chưa rõ – cần tư vấn"]},
+        {"bien": "ngan_sach", "hoi": "Ngân sách dự kiến cho nội thất ạ?", "lua_chon": ["Dưới 30 triệu", "30–80 triệu", "80–200 triệu", "Trên 200 triệu"]}
+      ],
+      "tiep": "xin_sdt"
+    },
+    "showroom": {
+      "tin_nhan": "Showroom Lia Casa tại {showroom}, mở cửa {gio_lam_viec}. Anh/chị muốn ghé ngày nào ạ?",
+      "lua_chon": ["Hôm nay", "Ngày mai", "Cuối tuần", "Video call xem hàng"],
+      "gan_tag": ["hen_showroom", "nong"],
+      "tiep": "xin_sdt"
+    },
+    "xin_sdt": {
+      "tin_nhan": "Anh/chị cho em xin số điện thoại/Zalo để chuyên viên gửi báo giá & hình thực tế nhé 📲",
+      "nut_nhanh": "user_phone_number",
+      "kiem_tra": "^0\\d{9}$",
+      "loi": "Số điện thoại chưa đúng định dạng (10 số, bắt đầu bằng 0). Anh/chị nhập lại giúp em nhé.",
+      "thanh_cong": "Em đã nhận thông tin ✅ Chuyên viên Lia Casa sẽ liên hệ trong 15 phút (ngoài giờ: trước 9h sáng mai). Cảm ơn anh/chị!",
+      "hanh_dong": [
+        "gan_tag: nong neu ngan_sach in ['80–200 triệu','Trên 200 triệu'] hoac co tag hen_showroom; nguoc lai am",
+        "day_ve: Google Sheet / CRM (ho_ten, sdt, sku, ngan_sach, nguon, tag)",
+        "thong_bao: nhóm Zalo sale"
+      ]
+    },
+    "handoff": {
+      "tin_nhan": "Em chuyển anh/chị sang chuyên viên tư vấn ngay ạ. Trong giờ {gio_lam_viec} phản hồi trong vài phút; hoặc gọi {hotline}.",
+      "hanh_dong": ["tat_bot_24h", "gan_tag: can_nguoi_that", "thong_bao: nhóm Zalo sale"]
+    }
+  },
+  "tu_khoa": {
+    "gia|bao nhiêu|bn|giá": "hoi_gia",
+    "catalog|mẫu|hình|ảnh": "catalog",
+    "showroom|địa chỉ|ở đâu|xem hàng": "showroom",
+    "thiết kế|3d|phối": "thiet_ke",
+    "nhân viên|gọi|tư vấn viên|người thật|khiếu nại|bảo hành hỏng": "handoff"
+  },
+  "faq": {
+    "bao_hanh": "Sản phẩm Lia Casa được bảo hành khung đến 5 năm, bảo trì tận nhà. Thời hạn cụ thể theo từng mẫu ghi trên báo giá ạ.",
+    "giao_hang": "Hàng có sẵn giao 2–5 ngày; hàng đặt theo lô 45–60 ngày. Miễn phí giao & lắp nội thành cho đơn từ 20 triệu.",
+    "tra_gop": "Lia Casa hỗ trợ trả góp qua thẻ tín dụng các ngân hàng liên kết. Chuyên viên sẽ tư vấn kỳ hạn phù hợp ạ.",
+    "xuat_xu": "Hàng nhập khẩu chính ngạch, có đầy đủ CO/CQ, xuất trình khi giao hàng.",
+    "dat_coc": "Hàng có sẵn: cọc để giữ hàng. Hàng đặt theo lô: cọc để chốt giá theo lô nhập, báo giá có hiệu lực 7 ngày.",
+    "doi_tra": "Đổi trả trong 7 ngày nếu lỗi sản xuất hoặc giao sai mẫu.",
+    "showroom": "Showroom tại [Địa chỉ showroom], mở cửa 8h–21h hằng ngày."
+  }
+}

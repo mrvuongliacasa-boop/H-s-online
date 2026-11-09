@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lia Casa – Nội thất nhập khẩu</title>
+<meta name="description" content="Lia Casa – Nội thất nhập khẩu Ý, Tây Ban Nha, Bắc Âu. Xem catalog, nhận báo giá trong 15 phút.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
+<!--
+  CẤU HÌNH – thay các giá trị sau trước khi chạy ads:
+  META_PIXEL_ID, TIKTOK_PIXEL_ID, LEAD_WEBHOOK (Google Apps Script / CRM), ZALO_PHONE, MESSENGER_PAGE
+-->
+<script>
+  window.LIA = {
+    META_PIXEL_ID: "",          // VD "1234567890"
+    TIKTOK_PIXEL_ID: "",        // VD "CXXXXXXXX"
+    LEAD_WEBHOOK: "",           // URL nhận lead (POST JSON). Trống = chỉ mở Zalo
+    ZALO_PHONE: "0900000000",
+    MESSENGER_PAGE: "liacasa",  // m.me/<page>
+    HOTLINE: "0900 000 000"
+  };
+</script>
+<script>
+  // Meta Pixel + TikTok Pixel (chỉ nạp khi đã điền ID)
+  (function () {
+    var C = window.LIA;
+    if (C.META_PIXEL_ID) {
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', C.META_PIXEL_ID); fbq('track', 'PageView');
+    }
+    if (C.TIKTOK_PIXEL_ID) {
+      !function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"];ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.load=function(e){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{};ttq._i[e]=[];ttq._i[e]._u=i;var o=d.createElement("script");o.type="text/javascript";o.async=!0;o.src=i+"?sdkid="+e+"&lib="+t;var a=d.getElementsByTagName("script")[0];a.parentNode.insertBefore(o,a)};ttq.load(C.TIKTOK_PIXEL_ID);ttq.page()}(window,document,'ttq');
+    }
+  })();
+  function track(event, data) {
+    try { if (window.fbq) fbq('track', event, data || {}); } catch (e) {}
+    try { if (window.ttq) ttq.track(event === 'Lead' ? 'SubmitForm' : event, data || {}); } catch (e) {}
+  }
+</script>
+
+<style>
+  :root {
+    --bg: #faf7f2; --surface: #ffffff; --ink: #2b2620; --muted: #6f665b;
+    --line: #e7dfd3; --accent: #8a6a3f; --accent-ink: #ffffff; --sale: #b4442f;
+    --soft: #f1eadf;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171512; --surface: #211e1a; --ink: #f1ece4; --muted: #b3a998;
+      --line: #3a342c; --accent: #c9a46b; --accent-ink: #1a1612; --sale: #e2775f; --soft: #2a251f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171512; --surface: #211e1a; --ink: #f1ece4; --muted: #b3a998;
+    --line: #3a342c; --accent: #c9a46b; --accent-ink: #1a1612; --sale: #e2775f; --soft: #2a251f;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "Be Vietnam Pro", system-ui, sans-serif; }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+  header { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  .logo { font: 600 22px "Playfair Display", serif; letter-spacing: .5px; text-decoration: none; }
+  .logo small { font: 500 11px "Be Vietnam Pro"; color: var(--muted); display: block; letter-spacing: 2px; text-transform: uppercase; margin-top: -4px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 0; cursor: pointer; border-radius: 999px; padding: 12px 22px; font: 600 15px inherit; font-family: inherit; text-decoration: none; background: var(--accent); color: var(--accent-ink); }
+  .btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  .btn.sm { padding: 8px 16px; font-size: 14px; }
+
+  .hero { padding: 64px 0 48px; }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .eyebrow { color: var(--accent); font-weight: 600; letter-spacing: 2px; text-transform: uppercase; font-size: 13px; }
+  h1 { font: 600 clamp(32px, 5vw, 52px)/1.15 "Playfair Display", serif; margin: 12px 0 16px; }
+  h2 { font: 600 clamp(26px, 3.5vw, 36px)/1.2 "Playfair Display", serif; margin: 0 0 8px; }
+  .lead { color: var(--muted); font-size: 18px; margin: 0 0 24px; }
+  .hero-img { aspect-ratio: 4/5; border-radius: 24px; background: var(--soft) center/cover; background-image: url("https://placehold.co/900x1100?text=Anh+phong+khach+Lia+Casa"); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .usp { border-block: 1px solid var(--line); background: var(--surface); }
+  .usp .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding-block: 24px; }
+  .usp b { display: block; font-size: 15px; }
+  .usp span { color: var(--muted); font-size: 14px; }
+
+  section.block { padding: 64px 0; }
+  .sub { color: var(--muted); margin: 0 0 24px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); border-radius: 999px; padding: 6px 14px; cursor: pointer; font: 500 14px inherit; font-family: inherit; }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; }
+  .card img { aspect-ratio: 1; object-fit: cover; width: 100%; background: var(--soft); }
+  .card .body { padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .tag { font-size: 12px; color: var(--muted); }
+  .card h3 { margin: 0; font-size: 16px; line-height: 1.35; }
+  .price { font-weight: 700; font-size: 18px; }
+  .price del { color: var(--muted); font-weight: 400; font-size: 14px; margin-left: 6px; }
+  .price.sale { color: var(--sale); }
+  .price.later { color: var(--accent); font-size: 15px; }
+  .note { font-size: 13px; color: var(--muted); }
+  .card .btn { margin-top: auto; }
+
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+  .step { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px; }
+  .step::before { counter-increment: s; content: "0" counter(s); font: 600 28px "Playfair Display", serif; color: var(--accent); }
+  .step b { display: block; margin: 6px 0 4px; }
+  .step span { color: var(--muted); font-size: 14px; }
+
+  .form-box { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  form { display: grid; gap: 12px; }
+  label { font-size: 14px; font-weight: 500; display: grid; gap: 4px; }
+  input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; }
+  .ok { display: none; padding: 12px; border-radius: 12px; background: var(--soft); }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0 96px; color: var(--muted); font-size: 14px; }
+  .float { position: fixed; right: 16px; bottom: 16px; display: grid; gap: 10px; z-index: 20; }
+  .float a { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 700; text-decoration: none; box-shadow: 0 6px 20px rgba(0,0,0,.2); font-size: 13px; }
+  .f-zalo { background: #0068ff; } .f-mess { background: #a033ff; } .f-call { background: #1f9d55; }
+
+  @media (max-width: 860px) {
+    .hero .wrap, .form-box { grid-template-columns: 1fr; }
+    .hero { padding-top: 32px; }
+    .hero-img { aspect-ratio: 4/3; order: -1; }
+    .usp .wrap, .steps { grid-template-columns: 1fr 1fr; }
+    .form-box { padding: 20px; }
+    header .btn { display: none; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Lia Casa<small>Nội thất nhập khẩu</small></a>
+    <a class="btn sm" href="#bao-gia">Nhận báo giá</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Nhập khẩu Ý · Tây Ban Nha · Bắc Âu</div>
+      <h1>Nội thất nhập khẩu chính hãng cho ngôi nhà của bạn</h1>
+      <p class="lead">Hàng có sẵn giao trong 3–5 ngày. Hàng đặt theo lô được báo giá chính xác trong 15 phút, theo đúng kích thước và màu bạn chọn.</p>
+      <div class="actions">
+        <a class="btn" href="#catalog">Xem catalog</a>
+        <a class="btn ghost" href="#bao-gia">Tư vấn miễn phí</a>
+      </div>
+    </div>
+    <div class="hero-img" role="img" aria-label="Phòng khách nội thất Lia Casa"></div>
+  </div>
+</section>
+
+<div class="usp">
+  <div class="wrap">
+    <div><b>Chính hãng – đủ CO/CQ</b><span>Nhập trực tiếp từ nhà máy</span></div>
+    <div><b>Bảo hành đến 5 năm</b><span>Bảo trì tận nhà</span></div>
+    <div><b>Giao & lắp miễn phí</b><span>Nội thành, đơn từ 20 triệu</span></div>
+    <div><b>Thiết kế 3D miễn phí</b><span>Phối đồ theo mặt bằng nhà bạn</span></div>
+  </div>
+</div>
+
+<section class="block" id="catalog">
+  <div class="wrap">
+    <h2>Catalog sản phẩm</h2>
+    <p class="sub" id="cap-nhat">Giá niêm yết cho hàng có sẵn. Hàng đặt theo lô nhập: giá cập nhật theo tỷ giá, nhận báo giá trong 15 phút.</p>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"><p class="note">Đang tải catalog…</p></div>
+  </div>
+</section>
+
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <h2>Mua hàng tại Lia Casa</h2>
+    <p class="sub">Đơn giản, minh bạch, có người theo sát từ lúc chọn mẫu đến khi lắp đặt.</p>
+    <div class="steps">
+      <div class="step"><b>Chọn mẫu</b><span>Xem catalog hoặc gửi ảnh phòng để được gợi ý</span></div>
+      <div class="step"><b>Nhận báo giá</b><span>Báo giá chi tiết trong 15 phút, hiệu lực 7 ngày</span></div>
+      <div class="step"><b>Xem hàng</b><span>Ghé showroom hoặc video call xem hàng thật</span></div>
+      <div class="step"><b>Giao & lắp</b><span>Giao tận nơi, lắp đặt, bảo hành dài hạn</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="bao-gia" style="padding-top:0">
+  <div class="wrap">
+    <div class="form-box">
+      <div>
+        <h2>Nhận báo giá & tư vấn</h2>
+        <p class="sub">Để lại thông tin, chuyên viên Lia Casa gọi lại trong 15 phút (8h–21h). Ngoài giờ, chúng tôi liên hệ ngay sáng hôm sau.</p>
+        <p class="note">Ưu đãi tháng này: tặng thảm hoặc đèn trang trí cho đơn từ 80 triệu.</p>
+      </div>
+      <form id="lead-form" novalidate>
+        <label>Họ và tên<input name="ho_ten" required autocomplete="name"></label>
+        <label>Số điện thoại / Zalo<input name="sdt" required inputmode="tel" autocomplete="tel" pattern="0[0-9]{9}"></label>
+        <label>Sản phẩm quan tâm<select name="san_pham" id="sp-select"><option value="">Tư vấn trọn gói</option></select></label>
+        <label>Ngân sách dự kiến
+          <select name="ngan_sach">
+            <option>Dưới 30 triệu</option><option>30–80 triệu</option>
+            <option>80–200 triệu</option><option>Trên 200 triệu</option>
+          </select>
+        </label>
+        <label>Ghi chú (diện tích, phong cách…)<textarea name="ghi_chu" rows="2"></textarea></label>
+        <button class="btn" type="submit">Gửi yêu cầu báo giá</button>
+        <div class="ok" id="ok" role="status">Cảm ơn bạn! Lia Casa sẽ liên hệ trong 15 phút.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>Lia Casa – Nội thất nhập khẩu</b><br>
+    Showroom: [Địa chỉ showroom] · Hotline: <span id="hotline"></span><br>
+    Giá trên website có thể thay đổi theo tỷ giá và lô hàng. Báo giá chính thức gửi qua Zalo/email.
+  </div>
+</footer>
+
+<div class="float">
+  <a class="f-zalo" id="f-zalo" href="#" aria-label="Chat Zalo">Zalo</a>
+  <a class="f-mess" id="f-mess" href="#" aria-label="Chat Messenger">Chat</a>
+  <a class="f-call" id="f-call" href="#" aria-label="Gọi hotline">Gọi</a>
+</div>
+
+<script>
+(function () {
+  var C = window.LIA;
+  var $ = function (id) { return document.getElementById(id); };
+  var vnd = function (n) { return Number(n).toLocaleString("vi-VN") + " đ"; };
+  var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
+  var utm = Object.fromEntries(new URLSearchParams(location.search));
+
+  $("hotline").textContent = C.HOTLINE;
+  $("f-zalo").href = "https://zalo.me/" + C.ZALO_PHONE;
+  $("f-mess").href = "https://m.me/" + C.MESSENGER_PAGE;
+  $("f-call").href = "tel:" + C.HOTLINE.replace(/\s/g, "");
+  ["f-zalo", "f-mess", "f-call"].forEach(function (id) { $(id).addEventListener("click", function () { track("Contact", { method: id }); }); });
+
+  var products = [], active = "Tất cả";
+
+  function priceHtml(p) {
+    if (p.loai_gia === "cap_nhat_sau") {
+      return '<div class="price later">Giá cập nhật sau</div>' +
+        '<div class="note">' + (p.gia_du_kien_tu ? "Dự kiến từ " + vnd(p.gia_du_kien_tu) + " · " : "") + "Báo giá trong 15 phút</div>";
+    }
+    if (p.gia_khuyen_mai) return '<div class="price sale">' + vnd(p.gia_khuyen_mai) + "<del>" + vnd(p.gia_niem_yet) + "</del></div>";
+    return '<div class="price">' + vnd(p.gia_niem_yet) + "</div>";
+  }
+
+  function render() {
+    var list = products.filter(function (p) { return active === "Tất cả" || p.danh_muc === active; });
+    $("grid").innerHTML = list.map(function (p) {
+      var cta = p.loai_gia === "cap_nhat_sau" ? "Nhận báo giá" : ((p.ton_kho || 0) > 0 ? "Giữ hàng ngay" : "Đặt hàng");
+      return '<article class="card" id="' + esc(p.sku) + '">' +
+        '<img loading="lazy" src="' + esc(p.anh) + '" alt="' + esc(p.ten) + '">' +
+        '<div class="body"><div class="tag">' + esc(p.danh_muc) + " · " + esc(p.xuat_xu) + "</div>" +
+        "<h3>" + esc(p.ten) + "</h3>" + priceHtml(p) +
+        '<div class="note">' + esc(p.kich_thuoc) + (p.thoi_gian_giao ? " · Giao " + esc(p.thoi_gian_giao) : "") + "</div>" +
+        '<button class="btn sm" data-sku="' + esc(p.sku) + '">' + cta + "</button></div></article>";
+    }).join("") || '<p class="note">Chưa có sản phẩm trong danh mục này.</p>';
+  }
+
+  function renderFilters() {
+    var cats = ["Tất cả"].concat(Array.from(new Set(products.map(function (p) { return p.danh_muc; }))));
+    $("filters").innerHTML = cats.map(function (c) {
+      return '<button class="chip" aria-pressed="' + (c === active) + '">' + esc(c) + "</button>";
+    }).join("");
+  }
+
+  $("filters").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    active = b.textContent; renderFilters(); render();
+  });
+
+  $("grid").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-sku]"); if (!b) return;
+    var p = products.find(function (x) { return x.sku === b.dataset.sku; });
+    $("sp-select").value = p.sku;
+    track("ViewContent", { content_ids: [p.sku], content_type: "product", value: p.gia_khuyen_mai || p.gia_niem_yet || 0, currency: "VND" });
+    $("bao-gia").scrollIntoView();
+    document.querySelector('#lead-form [name="ho_ten"]').focus({ preventScroll: true });
+  });
+
+  fetch("catalog.json").then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function (data) {
+    products = data.san_pham || [];
+    if (data.cap_nhat) $("cap-nhat").textContent += " Cập nhật: " + data.cap_nhat.split("-").reverse().join("/") + ".";
+    $("sp-select").insertAdjacentHTML("beforeend", products.map(function (p) {
+      return '<option value="' + esc(p.sku) + '">' + esc(p.ten) + "</option>";
+    }).join(""));
+    renderFilters(); render();
+  }).catch(function () {
+    $("grid").innerHTML = '<p class="note">Không tải được catalog. Chạy <code>python3 tools/build_catalog.py</code> để tạo catalog.json.</p>';
+  });
+
+  $("lead-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target, phone = f.sdt.value.replace(/\D/g, "");
+    if (!f.ho_ten.value.trim()) { f.ho_ten.focus(); return; }
+    if (!/^0\d{9}$/.test(phone)) { f.sdt.setCustomValidity("Số điện thoại gồm 10 số, bắt đầu bằng 0"); f.sdt.reportValidity(); f.sdt.setCustomValidity(""); return; }
+    var lead = Object.assign(Object.fromEntries(new FormData(f)), { sdt: phone, nguon: utm.utm_source || document.referrer || "direct", utm: utm, thoi_gian: new Date().toISOString() });
+    track("Lead", { content_name: lead.san_pham || "tu_van", currency: "VND" });
+    var done = function () { f.querySelector("button").disabled = true; $("ok").style.display = "block"; };
+    if (C.LEAD_WEBHOOK) {
+      fetch(C.LEAD_WEBHOOK, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(lead) }).finally(done);
+    } else {
+      done();
+      window.open("https://zalo.me/" + C.ZALO_PHONE, "_blank");
+    }
+  });
+})();
+</script>
+</body>
+</html>
