@@ -38,13 +38,33 @@
 4. Gửi `catalog/bao-gia-cho-cap-nhat.csv` cho đội sale: gọi lại các khách đã hỏi những mẫu vừa có giá.
 5. Ghi `ngay_cap_nhat`. Báo giá gửi khách luôn ghi **"hiệu lực 7 ngày"**.
 
-## 4. Catalog bản in / PDF gửi khách qua Zalo
+## 4. Tính giá bán từ cost nhà máy (cho hàng "giá cập nhật sau")
+
+Logic giống file Excel **LIA_BAO_GIA_COST**, tham số ở `catalog/tham-so-gia.json`:
+
+```
+Vận chuyển   = thể tích kiện (m³) × 1.200.000
+Ủy thác      = cost × 1,5%
+Thuế NK      = (cost + vận chuyển) × 8%
+CBPG dự phòng= (cost + vận chuyển) × 35,2% (bàn) / 21,4% (ghế) / 0%
+VAT NK       = (cost + vận chuyển + thuế NK + CBPG) × 8%
+Giá vốn cập bến = cost + vận chuyển + ủy thác + thuế NK + CBPG + VAT
+Giá bán đề xuất = Giá vốn / (1 − biên lãi 35% − chi phí bán hàng %)   (làm tròn lên 100.000)
+```
+
+- Nhập cost vào `catalog/gia-cost.csv` (cột `sku, gia_cost_nha_may, kich_thuoc_kien_cm, nhom_cbpg`; xem file mẫu `gia-cost.mau.csv`). **File này đã được .gitignore – không đẩy lên GitHub.**
+- Chạy `python3 tools/build_catalog.py` → `catalog/gia-von-noi-bo.csv` (nội bộ) có giá vốn, giá đề xuất, hệ số giá bán/giá vốn; `bao-gia-cho-cap-nhat.csv` có thêm cột `gia_ban_de_xuat` cho sale.
+- Cảnh báo tự động khi giá đang bán < **1,4× giá vốn cập bến**.
+- Cost và giá vốn **không bao giờ** xuất ra landing page hay feed quảng cáo.
+- ⚠️ Cơ sở tính thuế (cộng vận chuyển vào giá tính thuế) là cách tính phổ biến; hãy so khớp 1 dòng với file Excel trước khi dùng. CBPG chỉ là dự phòng – xác minh mã HS từng mặt hàng.
+
+## 5. Catalog bản in / PDF gửi khách qua Zalo
 
 - 1 trang bìa thương hiệu + 1 trang / bộ sưu tập (phòng khách, phòng ăn, phòng ngủ).
 - Mỗi sản phẩm: ảnh lớn, xuất xứ, chất liệu, kích thước, **giá** hoặc **"Liên hệ – giá theo lô nhập"**, QR Zalo.
 - Xuất từ Canva theo dữ liệu CSV (Bulk Create) để cập nhật nhanh khi đổi giá.
 
-## 5. Checklist chất lượng catalog
+## 6. Checklist chất lượng catalog
 
 - [ ] Ảnh nền sạch + ít nhất 1 ảnh phối cảnh trong phòng thật.
 - [ ] Tên có *chất liệu + xuất xứ* (VD: "Bàn ăn đá ceramic Tây Ban Nha").

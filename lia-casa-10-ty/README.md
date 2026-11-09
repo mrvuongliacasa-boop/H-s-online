@@ -23,7 +23,10 @@ python3 tools/build_catalog.py
 Kết quả:
 - `landing/catalog.json` → landing page tự hiển thị giá mới.
 - `catalog/feed-meta-tiktok.csv` → upload lên Meta Commerce Manager & TikTok Catalog (chỉ gồm sản phẩm **đã có giá**).
-- `catalog/bao-gia-cho-cap-nhat.csv` → danh sách sản phẩm **giá cập nhật sau** để sale chủ động báo giá.
+- `catalog/bao-gia-cho-cap-nhat.csv` → danh sách sản phẩm **giá cập nhật sau** (kèm giá đề xuất) để sale chủ động báo giá.
+- `catalog/gia-von-noi-bo.csv` → giá vốn cập bến & giá đề xuất tính từ cost nhà máy (**nội bộ, không commit**).
+
+Giá cost nhập vào `catalog/gia-cost.csv` (đã `.gitignore`). Tham số thuế/cước/biên lãi: `catalog/tham-so-gia.json`.
 
 ## Xem landing page trên máy
 

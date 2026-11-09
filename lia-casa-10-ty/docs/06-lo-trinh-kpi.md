@@ -9,25 +9,25 @@
 | 3 | Catalog PDF/Canva gửi Zalo | Quay buổi 2, đăng organic | A/B tiêu đề hero | Chạy test FB-1, FB-2, TikTok Spark (35tr/tháng) | Chuỗi chăm sóc +1h/+23h |
 | 4 | Cập nhật giá lô mới (quy trình thứ 2) | Chọn 2–3 video thắng | A/B form 2 trường vs 5 trường | Bật Advantage+ Catalog, retarget | Đo tỷ lệ để SĐT, chỉnh kịch bản |
 
-## 2. Lộ trình doanh thu 12 tháng (giả định)
+## 2. Lộ trình doanh thu 12 tháng (2 nhóm khách)
 
-| Tháng | Giai đoạn | Ads (tr) | Lead | Đơn | Doanh thu (tr) | Luỹ kế (tr) |
-|---|---|---|---|---|---|---|
-| 1 | Setup & test | 35 | 180 | 8 | 360 | 360 |
-| 2 | Test | 35 | 220 | 11 | 495 | 855 |
-| 3 | Scale 1 | 50 | 280 | 15 | 675 | 1.530 |
-| 4 | Scale 1 | 50 | 300 | 17 | 765 | 2.295 |
-| 5 | Scale 1 | 50 | 310 | 18 | 810 | 3.105 |
-| 6 | Scale 1 | 50 | 320 | 19 | 855 | 3.960 |
-| 7 | Scale 2 | 60 | 340 | 20 | 900 | 4.860 |
-| 8 | Scale 2 | 65 | 350 | 21 | 945 | 5.805 |
-| 9 | Cao điểm | 70 | 380 | 22 | 990 | 6.795 |
-| 10 | Cao điểm | 75 | 400 | 23 | 1.035 | 7.830 |
-| 11 | Cao điểm | 80 | 420 | 24 | 1.080 | 8.910 |
-| 12 | Cao điểm | 80 | 420 | 25 | 1.125 | **10.035** |
-| **Tổng** | | **700** | **~3.920** | **~223** | **~10.035** | |
+| Tháng | Dự án A (đơn) | Đơn lẻ B (đơn) | Doanh thu (tr) | Luỹ kế (tr) | Lead A | Lead B | Ads (tr) |
+|---|---|---|---|---|---|---|---|
+| 1 | 1 | 4 | 390 | 390 | 20 | 67 | 14 |
+| 2 | 1 | 5 | 425 | 815 | 20 | 83 | 17 |
+| 3 | 1 | 6 | 460 | 1.275 | 20 | 100 | 20 |
+| 4 | 2 | 7 | 745 | 2.020 | 40 | 117 | 25 |
+| 5 | 2 | 8 | 780 | 2.800 | 40 | 133 | 28 |
+| 6 | 2 | 9 | 815 | 3.615 | 40 | 150 | 31 |
+| 7 | 2 | 10 | 850 | 4.465 | 40 | 167 | 34 |
+| 8 | 2 | 11 | 885 | 5.350 | 40 | 183 | 37 |
+| 9 | 3 | 12 | 1.170 | 6.520 | 60 | 200 | 41 |
+| 10 | 3 | 13 | 1.205 | 7.725 | 60 | 217 | 44 |
+| 11 | 3 | 14 | 1.240 | 8.965 | 60 | 233 | 47 |
+| 12 | 2 | 16 | 1.060 | 10.025 | 40 | 267 | 52 |
+| **Tổng** | **24** | **115** | | **10.025** | **480** | **~1.920** | **~390** |
 
-> AOV 45 tr/đơn, ads ≈ 7% doanh thu. Nên xếp tháng 9–12 của lộ trình trùng mùa cao điểm sắm sửa nội thất cuối năm – trước Tết.
+> Giả định: dự án A 250 tr/đơn, đơn lẻ B 35 tr/đơn; ½ lead A đến từ KTS/giới thiệu (không tốn ads); CPL 180k. Dự án có chu kỳ chốt 1–2 tháng nên lead A phải có trước ít nhất 1 tháng. Nên xếp tháng 9–11 trùng mùa cao điểm cuối năm – trước Tết.
 
 ## 3. Nhân sự tối thiểu
 
@@ -37,6 +37,7 @@
 | Content + quay dựng | 1–2 | 12–20 video/tháng, ảnh catalog |
 | Admin kênh + chatbot | 1 | Đăng bài, trả lời bình luận, vận hành bot, livestream |
 | Sale tư vấn | 2–3 | Gọi lead < 15 phút, báo giá, chốt, chăm sóc sau bán |
+| Phụ trách đối tác KTS / dự án | 1 | Chăm sóc KTS, nhà thầu; theo dự án nhóm A từ báo giá tới bàn giao |
 | Kế toán/mua hàng | (kiêm) | Cập nhật giá lô mới mỗi thứ 2 |
 
 ## 4. Bảng KPI theo dõi hằng tuần
@@ -48,7 +49,8 @@
 | Landing | Tỷ lệ chuyển đổi · tốc độ tải | ≥ 8% · < 2,5s |
 | Chatbot | Phản hồi đầu · tỷ lệ để SĐT | < 10s · ≥ 35% |
 | Sale | Thời gian gọi lead · tỷ lệ chốt | < 15 phút · ≥ 6% |
-| Kinh doanh | Doanh thu · AOV · % ads/doanh thu | Theo bảng mục 2 · ≥ 45tr · ≤ 7,5% |
+| Kinh doanh | Doanh thu · số dự án A · % ads/doanh thu | Theo bảng mục 2 · 2 dự án/tháng · ≤ 5% |
+| Tài chính | Hệ số giá bán/giá vốn cập bến · công nợ chưa thu | ≥ 1,4× mọi đơn · ≤ 10% doanh thu |
 
 ## 5. Họp & báo cáo
 

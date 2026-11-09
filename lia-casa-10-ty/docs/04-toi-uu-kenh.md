@@ -55,8 +55,9 @@ Phong cách: chân thật, có người nói, phụ đề lớn; tránh video "q
 | Tần suất > 3 (prospecting) | Làm mới creative hoặc mở rộng tệp |
 | Lead nhiều nhưng tỷ lệ chốt < 3% | Kiểm tra chất lượng tệp: thêm câu hỏi ngân sách trong form, đổi sang mục tiêu Tin nhắn |
 
-**Phân bổ ngân sách ads theo tháng (tổng ~700tr, chi tiết ở `06-lo-trinh-kpi.md`):**
-T1–T2: 35tr/tháng (test) → T3–T6: 50tr/tháng → T7–T12 (mùa cao điểm cuối năm): 60–80tr/tháng.
+**Phân bổ ngân sách ads theo tháng (tổng ~390tr, chi tiết ở `06-lo-trinh-kpi.md`):**
+T1–T3: 14–20tr/tháng (test, tự nuôi bằng lợi nhuận) → T4–T8: 25–37tr/tháng → T9–T12 (cao điểm): 41–52tr/tháng.
+Chỉ tăng ngân sách khi CPL < 180k **và** tỷ lệ chốt ≥ 5% trong 4 tuần gần nhất.
 
 ## 6. Lịch nội dung tuần mẫu
 

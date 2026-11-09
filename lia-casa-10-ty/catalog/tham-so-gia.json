@@ -1,0 +1,12 @@
+{
+  "_ghi_chu": "Tham số tính giá từ cost nhà máy, theo file LIA_BAO_GIA_COST (sheet THAM SỐ). Sửa tại đây khi tỷ giá/cước/thuế thay đổi.",
+  "van_chuyen_vnd_m3": 1200000,
+  "phi_uy_thac": 0.015,
+  "thue_nhap_khau": 0.08,
+  "vat_nhap_khau": 0.08,
+  "cbpg_du_phong": {"ban": 0.352, "ghe": 0.214, "khong": 0.0},
+  "bien_lai_muc_tieu": 0.35,
+  "chi_phi_ban_hang": 0.0,
+  "lam_tron_den": 100000,
+  "canh_bao_he_so_toi_thieu": 1.4
+}

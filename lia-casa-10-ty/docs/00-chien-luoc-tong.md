@@ -1,24 +1,38 @@
 # 00 · Chiến lược tổng – Mục tiêu 10 tỷ
 
-## 1. Bóc tách mục tiêu (giả định – điều chỉnh theo số thật)
+## 1. Bóc tách mục tiêu – 2 nhóm khách (cập nhật theo dữ liệu bán hàng thực tế)
 
-| Chỉ số | Giả định | Ghi chú |
+Doanh số thực tế cho thấy doanh thu Lia Casa **dồn vào vài dự án lớn** (full nhà / công trình), còn lại là nhiều đơn lẻ giá trị nhỏ. Vì vậy mục tiêu 10 tỷ được chia theo 2 nhóm, mỗi nhóm một cách tìm khách:
+
+| Nhóm | Giá trị TB | Số đơn / 12 tháng | Doanh thu | Nguồn khách chính |
+|---|---|---|---|---|
+| **A – Dự án** (full nhà, biệt thự, showroom, nhà hàng) | 250 tr | **24** (2/tháng) | **6,0 tỷ** | KTS/nhà thầu giới thiệu, khách cũ, FB/IG Lead Form nhắm biệt thự – căn hộ cao cấp |
+| **B – Đơn lẻ / theo phòng** (sofa, bàn ăn, giường, đèn) | 35 tr | **~115** (~10/tháng) | **4,0 tỷ** | TikTok, Reels, FB Tin nhắn + catalog |
+| **Tổng** | | **~139 đơn** | **~10 tỷ** | |
+
+| Chỉ số | Nhóm A | Nhóm B |
 |---|---|---|
-| Doanh thu mục tiêu | **10.000.000.000 đ / 12 tháng** | ~833 tr/tháng bình quân |
-| Giá trị đơn trung bình (AOV) | 45.000.000 đ | Sofa, bàn ăn, giường nhập khẩu; combo phòng khách 80–200 tr |
-| Số đơn cần chốt | **~222 đơn** | ~19 đơn/tháng |
-| Tỷ lệ Lead → Đơn | 6% | Lead = để lại SĐT/Zalo, nhắn tin có nhu cầu rõ |
-| Số lead cần | **~3.700 lead** | ~310 lead/tháng |
-| Chi phí / lead (CPL) | 150.000 – 200.000 đ | Nội thất cao cấp, tệp hẹp |
-| Ngân sách quảng cáo | **~700 tr** (dao động 550–740 tr theo CPL) | ≈ 7% doanh thu |
+| Tỷ lệ lead → đơn | 5% | 6% |
+| Lead cần / năm | ~480 (½ từ KTS & giới thiệu, ½ từ ads) | ~1.900 |
+| CPL mục tiêu | 180.000 đ | 180.000 đ |
+| Ngân sách ads | ~43 tr | ~345 tr |
+
+**Tổng ngân sách quảng cáo ≈ 390 triệu (~4% doanh thu)** – tăng dần theo kết quả, không chi trước.
+
+### Nguyên tắc tài chính
+1. **Không nhận đơn lỗ:** giá bán ≥ **1,4× giá vốn cập bến** (đã gồm vận chuyển, thuế, CBPG). Công cụ `tools/build_catalog.py` tự cảnh báo.
+2. **Tính đủ chi phí bán hàng vào giá:** hoa hồng sale, chiết khấu KTS, quảng cáo, giao lắp → điền `chi_phi_ban_hang` trong `catalog/tham-so-gia.json` (đang để 0%).
+3. **Vận chuyển nội địa/lắp đặt dự án** báo giá riêng hoặc cộng vào giá; không để "ăn" vào biên lãi.
+4. **Ngân sách ads tự nuôi:** ads tháng sau ≤ 25% lợi nhuận gộp tháng trước cho tới khi CPL và tỷ lệ chốt ổn định.
+5. **Thu tiền:** cọc ≥ 50% dự án, thu đủ trước khi giao; theo dõi công nợ hằng tuần.
 
 **Công thức kiểm soát hằng tuần:**
 `Doanh thu = Lead × Tỷ lệ chốt × AOV` → tuần nào hụt, xác định ngay hụt ở *lead*, *tỷ lệ chốt* hay *AOV*.
 
 ### Đòn bẩy tăng doanh thu không cần tăng ngân sách
-1. **Tăng AOV**: bán combo theo phòng (sofa + bàn trà + thảm + đèn), quà tặng khi đơn > 80 tr.
+1. **Kéo đơn lẻ thành đơn theo phòng / dự án**: combo phòng khách (sofa + bàn trà + thảm + đèn), tư vấn 3D miễn phí cho khách mua ≥ 2 món.
 2. **Tăng tỷ lệ chốt**: phản hồi lead < 5 phút (chatbot), mời khách tới showroom / gọi video xem hàng.
-3. **Khách cũ & giới thiệu**: 15–20% doanh thu từ khách cũ, kiến trúc sư, nhà thầu (hoa hồng giới thiệu).
+3. **Chương trình đối tác KTS / nhà thầu**: chính sách chiết khấu cố định, catalog riêng cho KTS – đây là nguồn chính của nhóm A.
 
 ## 2. Phân bổ theo kênh
 
