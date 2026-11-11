@@ -2,3 +2,9 @@
 catalog/gia-cost.csv
 catalog/gia-von-noi-bo.csv
 noi-bo/
+# Dữ liệu chatbot (lead, hội thoại, token) – không commit
+chatbot/data/
+# File sinh tự động (tạo lại bằng tools/*)
+video/out/
+catalogue/
+__pycache__/

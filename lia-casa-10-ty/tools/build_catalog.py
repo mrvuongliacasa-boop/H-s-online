@@ -147,7 +147,7 @@ def write_feed(rows: list[dict], base_url: str) -> int:
                 "price": f"{r['gia_niem_yet']} VND",
                 "sale_price": f"{r['gia_khuyen_mai']} VND" if r["gia_khuyen_mai"] else "",
                 "link": r.get("link") or f"{base_url.rstrip('/')}/#{r['sku']}",
-                "image_link": r["anh"],
+                "image_link": r["anh"] if r["anh"].startswith("http") else f"{base_url.rstrip('/')}/{r['anh']}",
                 "brand": BRAND,
                 "product_type": r["danh_muc"],
             })

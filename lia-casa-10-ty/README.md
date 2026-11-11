@@ -11,6 +11,19 @@ Bộ tài liệu & công cụ triển khai cho **Lia Casa – Nội thất nhậ
 | 4 | Tối ưu kênh truyền thông FB / IG / TikTok | [docs/04-toi-uu-kenh.md](docs/04-toi-uu-kenh.md) |
 | 5 | Chatbot (Messenger / Instagram / TikTok / Zalo) | [docs/05-chatbot.md](docs/05-chatbot.md) · [chatbot/kich-ban.json](chatbot/kich-ban.json) |
 | 6 | Lộ trình 12 tháng, nhân sự, KPI | [docs/06-lo-trinh-kpi.md](docs/06-lo-trinh-kpi.md) |
+| 7 | **Kế hoạch tuần 11–15/11**: hoàn thiện video/ads, chatbot, catalogue, web | [docs/07-ke-hoach-tuan-11-15-11.md](docs/07-ke-hoach-tuan-11-15-11.md) |
+
+## Công cụ
+
+| Việc | Lệnh |
+|---|---|
+| Cập nhật catalog → web + feed QC | `python3 tools/build_catalog.py` |
+| Catalogue PDF (có giá / không giá) | `python3 tools/make_catalogue.py` → `catalogue/` |
+| Dựng video QC 9:16 + caption | `python3 tools/make_videos.py --top 8` → `video/out/` |
+| Tự đăng Fanpage / tạo QC / tự tắt QC kém | `python3 tools/dang_bai_ads.py dang` · `ads` · `toi-uu` (thêm `--that` để chạy thật) |
+| Chatbot FB + IG + Zalo | `python3 -m chatbot.server` (xem docs/07 Phụ lục A) |
+| Kiểm thử chatbot | `python3 -m unittest chatbot.test_engine` |
+| Ảnh mẫu cho SKU chưa có ảnh | `python3 tools/tao_anh_mau.py` |
 
 ## Quy trình cập nhật catalog (1 lệnh)
 

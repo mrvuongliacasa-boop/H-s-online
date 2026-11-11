@@ -76,7 +76,7 @@
   h1 { font: 600 clamp(32px, 5vw, 52px)/1.15 "Playfair Display", serif; margin: 12px 0 16px; }
   h2 { font: 600 clamp(26px, 3.5vw, 36px)/1.2 "Playfair Display", serif; margin: 0 0 8px; }
   .lead { color: var(--muted); font-size: 18px; margin: 0 0 24px; }
-  .hero-img { aspect-ratio: 4/5; border-radius: 24px; background: var(--soft) center/cover; background-image: url("https://placehold.co/900x1100?text=Anh+phong+khach+Lia+Casa"); }
+  .hero-img { aspect-ratio: 4/5; border-radius: 24px; background: var(--soft) center/cover; background-image: url("anh/LC-SF-001.jpg"); }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
   .usp { border-block: 1px solid var(--line); background: var(--surface); }
@@ -113,6 +113,30 @@
   label { font-size: 14px; font-weight: 500; display: grid; gap: 4px; }
   input, select, textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: var(--ink); font: inherit; }
   .ok { display: none; padding: 12px; border-radius: 12px; background: var(--soft); }
+
+  .search { width: 100%; max-width: 420px; margin-bottom: 12px; }
+  .card .row { display: flex; gap: 8px; margin-top: auto; }
+  .card .row .btn { flex: 1; margin: 0; }
+  .btn.pick[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+  .selbar { position: fixed; left: 16px; bottom: 16px; z-index: 25; display: none; align-items: center; gap: 12px; background: var(--ink); color: var(--bg); border-radius: 999px; padding: 10px 10px 10px 20px; box-shadow: 0 8px 24px rgba(0,0,0,.25); font-size: 14px; max-width: calc(100% - 100px); }
+  .selbar b { font-size: 15px; }
+  .selbar .btn { background: var(--accent); color: var(--accent-ink); }
+  body.has-sel .selbar { display: flex; }
+  .drawer { position: fixed; inset: 0; z-index: 40; display: none; }
+  .drawer.open { display: block; }
+  .drawer .shade { position: absolute; inset: 0; background: rgba(0,0,0,.45); }
+  .drawer .panel { position: absolute; right: 0; top: 0; bottom: 0; width: min(440px, 100%); background: var(--bg); display: flex; flex-direction: column; }
+  .drawer header { position: static; display: flex; justify-content: space-between; align-items: center; padding: 16px; height: auto; }
+  .drawer .items { flex: 1; overflow: auto; padding: 8px 16px; display: grid; gap: 12px; align-content: start; }
+  .item { display: grid; grid-template-columns: 64px 1fr auto; gap: 12px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 8px; }
+  .item img { width: 64px; height: 64px; object-fit: cover; border-radius: 10px; }
+  .item .name { font-weight: 600; font-size: 14px; line-height: 1.3; }
+  .qty { display: flex; align-items: center; gap: 6px; }
+  .qty button { width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; font: inherit; }
+  .drawer .sum { border-top: 1px solid var(--line); padding: 16px; display: grid; gap: 10px; }
+  .drawer .sum .total { display: flex; justify-content: space-between; font-weight: 700; font-size: 18px; }
+  .x { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 22px; line-height: 1; }
+  body.has-sel .float { bottom: 84px; }
 
   footer { border-top: 1px solid var(--line); padding: 32px 0 96px; color: var(--muted); font-size: 14px; }
   .float { position: fixed; right: 16px; bottom: 16px; display: grid; gap: 10px; z-index: 20; }
@@ -165,6 +189,7 @@
   <div class="wrap">
     <h2>Catalog sản phẩm</h2>
     <p class="sub" id="cap-nhat">Giá niêm yết cho hàng có sẵn. Hàng đặt theo lô nhập: giá cập nhật theo tỷ giá, nhận báo giá trong 15 phút.</p>
+    <input class="search" id="search" type="search" placeholder="Tìm sản phẩm: sofa, bàn ăn, da Ý…" aria-label="Tìm sản phẩm">
     <div class="filters" id="filters"></div>
     <div class="grid" id="grid"><p class="note">Đang tải catalog…</p></div>
   </div>
@@ -201,6 +226,7 @@
             <option>80–200 triệu</option><option>Trên 200 triệu</option>
           </select>
         </label>
+        <label id="ds-label" hidden>Danh sách đã chọn<textarea name="danh_sach" id="ds-text" rows="4" readonly></textarea></label>
         <label>Ghi chú (diện tích, phong cách…)<textarea name="ghi_chu" rows="2"></textarea></label>
         <button class="btn" type="submit">Gửi yêu cầu báo giá</button>
         <div class="ok" id="ok" role="status">Cảm ơn bạn! Lia Casa sẽ liên hệ trong 15 phút.</div>
@@ -216,6 +242,25 @@
     Giá trên website có thể thay đổi theo tỷ giá và lô hàng. Báo giá chính thức gửi qua Zalo/email.
   </div>
 </footer>
+
+<div class="selbar" role="region" aria-label="Danh sách chọn">
+  <span><b id="sel-count">0</b> sản phẩm · <span id="sel-total"></span></span>
+  <button class="btn sm" id="sel-open" type="button">Xem danh sách</button>
+</div>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="shade" data-close></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <header><b id="drawer-title">Danh sách bạn đã chọn</b><button class="x" data-close aria-label="Đóng">×</button></header>
+    <div class="items" id="sel-items"></div>
+    <div class="sum">
+      <div class="total"><span>Tạm tính</span><span id="sel-total2"></span></div>
+      <div class="note" id="sel-note"></div>
+      <button class="btn" id="sel-quote" type="button">Gửi yêu cầu báo giá</button>
+      <button class="btn ghost" id="sel-zalo" type="button">Gửi danh sách qua Zalo</button>
+    </div>
+  </div>
+</div>
 
 <div class="float">
   <a class="f-zalo" id="f-zalo" href="#" aria-label="Chat Zalo">Zalo</a>
@@ -237,7 +282,54 @@
   $("f-call").href = "tel:" + C.HOTLINE.replace(/\s/g, "");
   ["f-zalo", "f-mess", "f-call"].forEach(function (id) { $(id).addEventListener("click", function () { track("Contact", { method: id }); }); });
 
-  var products = [], active = "Tất cả";
+  var products = [], active = "Tất cả", sel = {};
+  var norm = function (s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d"); };
+  var KEY = "liacasa_danh_sach";
+  try { sel = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { sel = {}; }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(sel)); } catch (e) {} }
+  function unitPrice(p) { return p.loai_gia === "co_san" ? (p.gia_khuyen_mai || p.gia_niem_yet) : 0; }
+  function picked() { return products.filter(function (p) { return sel[p.sku]; }).map(function (p) { return { p: p, n: sel[p.sku] }; }); }
+  function listText() {
+    return picked().map(function (x, i) {
+      var u = unitPrice(x.p);
+      return (i + 1) + ". " + x.p.ten + " (" + x.p.sku + ") x" + x.n + " – " + (u ? vnd(u * x.n) : "giá cập nhật sau");
+    }).join("\n");
+  }
+  function renderSel() {
+    var items = picked(), count = 0, total = 0, later = 0;
+    items.forEach(function (x) { count += x.n; var u = unitPrice(x.p); if (u) total += u * x.n; else later++; });
+    document.body.classList.toggle("has-sel", count > 0);
+    $("sel-count").textContent = count;
+    $("sel-total").textContent = vnd(total) + (later ? " + " + later + " mẫu chờ báo giá" : "");
+    $("sel-total2").textContent = vnd(total);
+    $("sel-note").textContent = (later ? "Chưa gồm " + later + " mẫu giá cập nhật sau – sẽ được báo giá chính xác trong 15 phút. " : "") + "Ưu đãi combo sẽ được chuyên viên áp dụng khi báo giá.";
+    $("sel-items").innerHTML = items.map(function (x) {
+      var u = unitPrice(x.p);
+      return '<div class="item"><img src="' + esc(x.p.anh) + '" alt=""><div><div class="name">' + esc(x.p.ten) + '</div><div class="note">' +
+        (u ? vnd(u) : "Giá cập nhật sau") + '</div></div><div class="qty"><button data-q="-1" data-s="' + esc(x.p.sku) + '" aria-label="Bớt">−</button><b>' + x.n +
+        '</b><button data-q="1" data-s="' + esc(x.p.sku) + '" aria-label="Thêm">+</button></div></div>';
+    }).join("") || '<p class="note">Chưa chọn sản phẩm nào.</p>';
+    $("ds-label").hidden = !count; $("ds-text").value = listText();
+  }
+  function setQty(sku, n) { if (n > 0) sel[sku] = n; else delete sel[sku]; save(); renderSel(); render(); }
+  function openDrawer(open) { $("drawer").classList.toggle("open", open); $("drawer").setAttribute("aria-hidden", String(!open)); }
+  $("search").addEventListener("input", function () { render(); });
+  $("sel-open").addEventListener("click", function () { openDrawer(true); });
+  $("drawer").addEventListener("click", function (e) {
+    if (e.target.closest("[data-close]")) return openDrawer(false);
+    var b = e.target.closest("button[data-q]"); if (b) setQty(b.dataset.s, (sel[b.dataset.s] || 0) + Number(b.dataset.q));
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") openDrawer(false); });
+  $("sel-quote").addEventListener("click", function () {
+    openDrawer(false); renderSel(); $("bao-gia").scrollIntoView();
+    document.querySelector('#lead-form [name="ho_ten"]').focus({ preventScroll: true });
+  });
+  $("sel-zalo").addEventListener("click", function () {
+    var text = "Chào Lia Casa, mình muốn báo giá các sản phẩm:\n" + listText();
+    track("Contact", { method: "zalo_danh_sach" });
+    var go = function () { window.open("https://zalo.me/" + C.ZALO_PHONE, "_blank"); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { alert("Đã chép danh sách – dán vào khung chat Zalo nhé!"); go(); }, go); else go();
+  });
 
   function priceHtml(p) {
     if (p.loai_gia === "cap_nhat_sau") {
@@ -249,15 +341,20 @@
   }
 
   function render() {
-    var list = products.filter(function (p) { return active === "Tất cả" || p.danh_muc === active; });
+    var q = norm($("search").value);
+    var list = products.filter(function (p) {
+      return (active === "Tất cả" || p.danh_muc === active) &&
+        (!q || norm([p.ten, p.danh_muc, p.xuat_xu, p.chat_lieu, p.sku].join(" ")).indexOf(q) >= 0);
+    });
     $("grid").innerHTML = list.map(function (p) {
-      var cta = p.loai_gia === "cap_nhat_sau" ? "Nhận báo giá" : ((p.ton_kho || 0) > 0 ? "Giữ hàng ngay" : "Đặt hàng");
+      var picked = !!sel[p.sku];
       return '<article class="card" id="' + esc(p.sku) + '">' +
         '<img loading="lazy" src="' + esc(p.anh) + '" alt="' + esc(p.ten) + '">' +
         '<div class="body"><div class="tag">' + esc(p.danh_muc) + " · " + esc(p.xuat_xu) + "</div>" +
         "<h3>" + esc(p.ten) + "</h3>" + priceHtml(p) +
         '<div class="note">' + esc(p.kich_thuoc) + (p.thoi_gian_giao ? " · Giao " + esc(p.thoi_gian_giao) : "") + "</div>" +
-        '<button class="btn sm" data-sku="' + esc(p.sku) + '">' + cta + "</button></div></article>";
+        '<div class="row"><button class="btn sm ghost pick" data-pick="' + esc(p.sku) + '" aria-pressed="' + picked + '">' + (picked ? "✓ Đã chọn" : "+ Chọn") + "</button>" +
+        '<button class="btn sm" data-sku="' + esc(p.sku) + '">' + (p.loai_gia === "cap_nhat_sau" ? "Báo giá" : "Tư vấn") + "</button></div></div></article>";
     }).join("") || '<p class="note">Chưa có sản phẩm trong danh mục này.</p>';
   }
 
@@ -274,6 +371,12 @@
   });
 
   $("grid").addEventListener("click", function (e) {
+    var pk = e.target.closest("button[data-pick]");
+    if (pk) {
+      var sku = pk.dataset.pick; setQty(sku, sel[sku] ? 0 : 1);
+      if (sel[sku]) { var pp = products.find(function (x) { return x.sku === sku; }); track("AddToWishlist", { content_ids: [sku], value: unitPrice(pp), currency: "VND" }); }
+      return;
+    }
     var b = e.target.closest("button[data-sku]"); if (!b) return;
     var p = products.find(function (x) { return x.sku === b.dataset.sku; });
     $("sp-select").value = p.sku;
@@ -288,7 +391,8 @@
     $("sp-select").insertAdjacentHTML("beforeend", products.map(function (p) {
       return '<option value="' + esc(p.sku) + '">' + esc(p.ten) + "</option>";
     }).join(""));
-    renderFilters(); render();
+    Object.keys(sel).forEach(function (k) { if (!products.some(function (p) { return p.sku === k; })) delete sel[k]; });
+    renderFilters(); render(); renderSel();
   }).catch(function () {
     $("grid").innerHTML = '<p class="note">Không tải được catalog. Chạy <code>python3 tools/build_catalog.py</code> để tạo catalog.json.</p>';
   });
@@ -299,8 +403,8 @@
     if (!f.ho_ten.value.trim()) { f.ho_ten.focus(); return; }
     if (!/^0\d{9}$/.test(phone)) { f.sdt.setCustomValidity("Số điện thoại gồm 10 số, bắt đầu bằng 0"); f.sdt.reportValidity(); f.sdt.setCustomValidity(""); return; }
     var lead = Object.assign(Object.fromEntries(new FormData(f)), { sdt: phone, nguon: utm.utm_source || document.referrer || "direct", utm: utm, thoi_gian: new Date().toISOString() });
-    track("Lead", { content_name: lead.san_pham || "tu_van", currency: "VND" });
-    var done = function () { f.querySelector("button").disabled = true; $("ok").style.display = "block"; };
+    track("Lead", { content_name: lead.san_pham || "tu_van", content_ids: Object.keys(sel), currency: "VND" });
+    var done = function () { f.querySelector('button[type="submit"]').disabled = true; $("ok").style.display = "block"; sel = {}; save(); renderSel(); render(); };
     if (C.LEAD_WEBHOOK) {
       fetch(C.LEAD_WEBHOOK, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(lead) }).finally(done);
     } else {
